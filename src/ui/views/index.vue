@@ -5,12 +5,12 @@ import ParticlesBg from '../components/backgrounds/particlesBg/ParticlesBg.vue';
 <template>
   <div class="w-full">
     <div
-      class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden md:shadow-xl"
+      class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden"
     >
       <span
         class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent"
       >
-        Particles
+        AUST-Physics-Electron
       </span>
       <ParticlesBg
         class="absolute inset-0"
