@@ -1,18 +1,25 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useThemeStore } from './store/theme';
 
 export default defineComponent({
   name: 'App',
-  data() {
+  setup() {
+    const themeStore = useThemeStore();
     return {
-      themeStyle: 'cupcake'
+      themeStore,
     };
-  }
+  },
+  computed: {
+    themeStyle() {
+      return this.themeStore.getTheme();
+    },
+  },
 });
 </script>
 
 <template>
-  <div class="bg-base-content box-border" :data-theme="themeStyle">
+  <div class="bg-base-content box-border lazydog" :data-theme="themeStyle">
     <div class="fixed inset-x-0 top-0 z-10">
       <div class="bg-base-100">
         <div class="flex h-14 items-center justify-between gap-8 px-4 sm:px-6">
@@ -24,9 +31,9 @@ export default defineComponent({
             <div class="dropdown dropdown-end">
               <div tabindex="0" role="button" class="btn btn-sm">主题</div>
               <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                <li><button @click="themeStyle = 'cupcake'">cupcake</button></li>
-                <li><button @click="themeStyle = 'dark'">dark</button></li>
-                <li><button @click="themeStyle = 'light'">light</button></li>
+                <li><button @click="themeStore.setTheme('cupcake')">cupcake</button></li>
+                <li><button @click="themeStore.setTheme('dark')">dark</button></li>
+                <li><button @click="themeStore.setTheme('light')">light</button></li>
               </ul>
             </div>
           </div>
