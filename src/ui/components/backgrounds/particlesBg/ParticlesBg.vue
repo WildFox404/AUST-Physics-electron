@@ -71,9 +71,7 @@ watch([mouseX, mouseY], () => {
 
 watch(() => themeStore.theme, (newValue, oldValue) => {
   if(newValue !== oldValue) {
-    console.log(newValue, oldValue);
     const colorResult = LD.processOklchToRgb('--bc');
-    console.log(colorResult);
     color.value = colorResult || "255 255 255";
 
     initCanvas();

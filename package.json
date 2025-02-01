@@ -16,6 +16,7 @@
     "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
+    "@number-flow/vue": "^0.4.3",
     "@vueuse/core": "^12.5.0",
     "motion-v": "^0.8.1",
     "pinia": "^2.3.1",
