@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <h1>home</h1>
+  <div class="w-full">
+    
+  </div>
 </template>
 
 <style scoped>
