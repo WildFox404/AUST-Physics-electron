@@ -15,13 +15,21 @@
 - 🧪 项目启动
 ```
 git clone https://github.com/WildFox404/AUST-Physics-electron.git
+
 npm i
+
 npm run dev:vue 启动vue本地
+
 npm run dev:electron 启动本地electron (PS:在开发环境中访问localhost:xxxx 的vue项目)
+
 npm run dev 启动本地vue+electron(🎉推荐)
+
 npm run build 打包vue
+
 npm run dist:mac 打包mac软件
+
 npm run dist:win 打包win软件
+
 npm run dist:linux 打包linux软件
 ```
 ps:如果electron安装出现错误
