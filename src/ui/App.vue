@@ -34,6 +34,11 @@ export default defineComponent({
                 <li><button @click="themeStore.setTheme('cupcake')">cupcake</button></li>
                 <li><button @click="themeStore.setTheme('dark')">dark</button></li>
                 <li><button @click="themeStore.setTheme('light')">light</button></li>
+                <li><button @click="themeStore.setTheme('valentine')">valentine</button></li>
+                <li><button @click="themeStore.setTheme('night')">night</button></li>
+                <li><button @click="themeStore.setTheme('halloween')">halloween</button></li>
+                <li><button @click="themeStore.setTheme('synthwave')">synthwave</button></li>
+                <li><button @click="themeStore.setTheme('retro')">retro</button></li>
               </ul>
             </div>
           </div>

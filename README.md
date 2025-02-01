@@ -55,6 +55,10 @@ cnpm install --save-dev electron
     - tailwindcss
     - typescript
 
+- 项目规范
+    - 标签的颜色一定要大量使用daisy ui的颜色 , 方便风格切换显示
+        - 文档: https://daisyui.com/docs/colors/
+    - npm install 新内容提交时记得声明
 ### 🔧开发TODO
 - 首页
 - 关于

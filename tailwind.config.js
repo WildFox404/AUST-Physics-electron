@@ -10,7 +10,14 @@ export default {
   },
   plugins: [daisyui,animate, setupInspiraUI],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    themes: ["light", 
+      "dark", 
+      "cupcake",
+      "valentine",
+      "night",
+      "halloween",
+      "synthwave",
+      "retro",],
   },
 }
 
