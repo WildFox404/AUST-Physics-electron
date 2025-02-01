@@ -1,0 +1,14 @@
+{
+    "appId": "com.lazydog.aust-physics-electron",
+    "files":["dist-electron","dist-vue"],
+    "mac": {
+        "target": "dmg"
+    },
+    "win": {
+        "target": ["msi","protable"]
+    },
+    "linux": {
+        "target": ["AppImage","deb"],
+        "category": "Utility"
+    }
+}
