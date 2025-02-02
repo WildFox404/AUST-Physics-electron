@@ -1,21 +1,61 @@
 <script setup lang="ts">
 import ParticlesBg from '../components/backgrounds/particlesBg/ParticlesBg.vue';
 import BoxReveal from '../components/textAnimations/boxReveal/BoxReveal.vue';
-import LD from "../utils/LD";
+import ScratchToReveal from '../components/specialEffects/scratchToReveal/ScratchToReveal.vue';
 import { ref, watch } from "vue";
 import { useThemeStore } from "../store/theme";
+import confetti from "canvas-confetti";
+import LetterPullup from '../components/textAnimations/letterPullup/LetterPullup.vue';
 
-const colorPrimary = ref(LD.processOklchToHex('--p'));
-const colorSecondary = ref(LD.processOklchToHex('--s'));
-const colorAccent = ref(LD.processOklchToHex('--a'));
 const themeStore = useThemeStore();
+const colorPrimary = ref(themeStore.getColorHex('--p'));
+const colorSecondary = ref(themeStore.getColorHex('--s'));
+const colorAccent = ref(themeStore.getColorHex('--a'));
+
 watch(() => themeStore.theme, (newValue, oldValue) => {
   if(newValue !== oldValue) {
-    colorPrimary.value = LD.processOklchToHex('--p');
-    colorSecondary.value = LD.processOklchToHex('--s');
-    colorAccent.value = LD.processOklchToHex('--a');
+    colorPrimary.value = themeStore.getColorHex('--p');
+    colorSecondary.value = themeStore.getColorHex('--s');
+    colorAccent.value = themeStore.getColorHex('--a');
   }
 }, { immediate: false });
+
+
+function handleComplete() {
+  const duration = 5 * 1000; // 5 seconds
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+  // Helper function to get a random value between a range
+  function randomInRange(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const interval = window.setInterval(() => {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      clearInterval(interval);
+      return;
+    }
+
+    const particleCount = 50 * (timeLeft / duration);
+
+    // Confetti from left side
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+    });
+
+    // Confetti from right side
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+    });
+  }, 250);
+}
 </script>
 
 <template>
@@ -230,7 +270,7 @@ watch(() => themeStore.theme, (newValue, oldValue) => {
     <div class="cards w-full px-10 items-center justify-evenly mt-16 mb-20">
       <div class="card red flex-1">
         <img class="h-24" src="https://www.svgrepo.com/show/303223/microsoft-windows-22-logo.svg" alt="Windows 22" />
-        <p class="tip text-base-content">Windows 22</p>
+        <p class="tip text-base-content">Windows</p>
       </div>
       <div class="card blue flex-1">
         <img class="h-24" src="https://www.svgrepo.com/show/303110/apple-black-logo.svg" alt="Apple" />
@@ -241,6 +281,21 @@ watch(() => themeStore.theme, (newValue, oldValue) => {
         <p class="tip text-base-content">Linux</p>
       </div>
     </div>
+    <LetterPullup
+      words="⬂刮一刮 Thank you for using 刮一刮⬃"
+      :delay="0.05"
+      class="text-base-content"
+    />
+    <ScratchToReveal
+      :width="250"
+      :height="250"
+      :min-scratch-percentage="50"
+      class="mx-auto mb-20 flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
+      :gradient-colors="[colorPrimary, colorSecondary, colorAccent]"
+      @complete="handleComplete"
+    >
+      <div class="text-8xl">🥳</div>
+    </ScratchToReveal>
   </div>
 </template>
 

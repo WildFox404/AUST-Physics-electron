@@ -22,7 +22,7 @@ const colorAccent = ref("");
 
 <template>
   <div class="bg-base-content box-border lazydog" :data-theme="themeStyle">
-    <div class="fixed inset-x-0 top-0 z-10">
+    <div class="fixed inset-x-0 top-0 z-20">
       <div class="bg-base-100">
         <div class="flex h-14 items-center justify-between gap-8 px-4 sm:px-6">
           <div class="flex gap-4 items-center">
@@ -57,7 +57,7 @@ const colorAccent = ref("");
       </div>
     </div>
     <div class="flex">
-      <div class="bg-base-200 w-58 pt-14 h-[100vh] overflow-auto border-r-2 border-base-100">
+      <div class="bg-base-200 z-10 relative w-58 pt-14 h-[100vh] overflow-auto border-r-2 border-base-100">
         <ul class="menu bg-base-200 w-56">
           <li><RouterLink to="/">主页</RouterLink></li>
           <li>
@@ -81,7 +81,7 @@ const colorAccent = ref("");
           <li><RouterLink to="/about">关于</RouterLink></li>
         </ul>
       </div>
-      <div class="bg-base-300 flex-1 flex-col pt-14 h-[100vh] overflow-auto">
+      <div class="bg-base-300 z-0 relative flex-1 flex-col pt-14 h-[100vh] overflow-auto">
         <RouterView />
         <footer class="footer bg-base-200 text-base-content p-10">
           <nav>
