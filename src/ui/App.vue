@@ -1,21 +1,23 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { computed,onMounted,ref } from 'vue';
 import { useThemeStore } from './store/theme';
-
-export default defineComponent({
-  name: 'App',
-  setup() {
-    const themeStore = useThemeStore();
-    return {
-      themeStore,
-    };
-  },
-  computed: {
-    themeStyle() {
-      return this.themeStore.getTheme();
-    },
-  },
+import SideCannons from './components/specialEffects/confetti/sideCannons/SideCannons.vue';
+import LD from './utils/LD';
+const themeStore = useThemeStore();
+const themeStyle = computed(() => {
+  colorPrimary.value = LD.processOklchToHex('--p');
+  colorSecondary.value = LD.processOklchToHex('--s');
+  colorAccent.value = LD.processOklchToHex('--a');
+  return themeStore.getTheme()
 });
+onMounted(() => {
+  colorPrimary.value = LD.processOklchToHex('--p');
+  colorSecondary.value = LD.processOklchToHex('--s');
+  colorAccent.value = LD.processOklchToHex('--a');
+});
+const colorPrimary = ref("");
+const colorSecondary = ref("");
+const colorAccent = ref("");
 </script>
 
 <template>
@@ -27,9 +29,16 @@ export default defineComponent({
             <img src="./assets/logo.png" alt="logo" class="w-[32px] h-[32px]" />
             <h1 class="text-lg text-base-content font-bold">LAZY DOG</h1>
           </div>
-          <div class="flex items-center gap-6 max-md:hidden">
-            <div class="dropdown dropdown-end">
-              <div tabindex="0" role="button" class="btn btn-sm">主题</div>
+          <div class="flex items-center justify-between gap-4 max-md:hidden">
+            <SideCannons 
+              :colorPrimary= colorPrimary
+              :colorSecondary= colorSecondary
+              :colorAccent= colorAccent
+            >
+              复制链接分享给好友
+            </SideCannons>
+            <div class="dropdown dropdown-end w-24">
+              <button tabindex="0" role="button" class="btn btn-sm btn-block">主题</button>
               <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li><button @click="themeStore.setTheme('cupcake')">cupcake</button></li>
                 <li><button @click="themeStore.setTheme('dark')">dark</button></li>

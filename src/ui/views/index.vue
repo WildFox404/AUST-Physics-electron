@@ -227,7 +227,7 @@ watch(() => themeStore.theme, (newValue, oldValue) => {
       <span class="platform-span px-1">m</span>
     </h1>
     <!-- 平台展示 -->
-    <div class="cards w-full px-10 items-center justify-evenly mt-16">
+    <div class="cards w-full px-10 items-center justify-evenly mt-16 mb-20">
       <div class="card red flex-1">
         <img class="h-24" src="https://www.svgrepo.com/show/303223/microsoft-windows-22-logo.svg" alt="Windows 22" />
         <p class="tip text-base-content">Windows 22</p>
