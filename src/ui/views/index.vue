@@ -37,37 +37,58 @@ watch(() => themeStore.theme, (newValue, oldValue) => {
       />
     </div>
     <!-- 使用说明标题 -->
-    <div class="size-full max-w-lg items-center justify-center overflow-hidden p-8">
-      <BoxReveal :color="colorPrimary">
-        <p class="text-[3.5rem] font-semibold">Introduction<span class="text-accent">.</span></p>
-      </BoxReveal>
+    <div class="w-full flex items-center justify-between gap-8 pr-20">
+      <div class="size-full max-w-lg items-center justify-center overflow-hidden p-8">
+        <BoxReveal :color="colorPrimary">
+          <p class="text-[3.5rem] font-semibold">Introduction<span class="text-accent">.</span></p>
+        </BoxReveal>
 
-      <BoxReveal
-        :color="colorPrimary"
-        :duration="0.8"
-      >
-        <h2 class="mt-[.5rem] text-[1rem]">
-          Beautiful Physical Data Processing for
-          <span class="text-accent">Vue &amp; Nuxt.</span>
-        </h2>
-      </BoxReveal>
+        <BoxReveal
+          :color="colorPrimary"
+          :duration="0.8"
+        >
+          <h2 class="mt-[.5rem] text-[1rem]">
+            Beautiful Physical Data Processing for
+            <span class="text-accent">Vue &amp; Nuxt.</span>
+          </h2>
+        </BoxReveal>
 
-      <BoxReveal
-        :color="colorPrimary"
-        :duration="1"
-      >
-        <div class="mt-6">
-          <p>
-            -&gt; Free and open-source animated components built with
-            <span class="font-semibold text-accent"> Vue/Nuxt</span>,
-            <span class="font-semibold text-accent"> Typescript</span>,
-            <span class="font-semibold text-accent"> Tailwind CSS</span>, and
-            <span class="font-semibold text-accent"> motion-v</span>
-            . <br />
-            -&gt; 100% open-source, and customizable. <br />
-          </p>
+        <BoxReveal
+          :color="colorPrimary"
+          :duration="1"
+        >
+          <div class="mt-6">
+            <p>
+              -&gt; Free and open-source animated components built with
+              <span class="font-semibold text-accent"> Vue/Nuxt</span>,
+              <span class="font-semibold text-accent"> Typescript</span>,
+              <span class="font-semibold text-accent"> Tailwind CSS</span>, and
+              <span class="font-semibold text-accent"> motion-v</span>
+              . <br />
+              -&gt; 100% open-source, and customizable. <br />
+            </p>
+          </div>
+        </BoxReveal>
+      </div>
+      <!-- 仓鼠 -->
+      <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster hidden lg:block">
+        <div class="wheel"></div>
+        <div class="hamster">
+          <div class="hamster__body">
+            <div class="hamster__head">
+              <div class="hamster__ear"></div>
+              <div class="hamster__eye"></div>
+              <div class="hamster__nose"></div>
+            </div>
+            <div class="hamster__limb hamster__limb--fr"></div>
+            <div class="hamster__limb hamster__limb--fl"></div>
+            <div class="hamster__limb hamster__limb--br"></div>
+            <div class="hamster__limb hamster__limb--bl"></div>
+            <div class="hamster__tail"></div>
+          </div>
         </div>
-      </BoxReveal>
+        <div class="spoke"></div>
+      </div>
     </div>
     <!-- 使用教程 -->
     <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
@@ -194,11 +215,423 @@ watch(() => themeStore.theme, (newValue, oldValue) => {
         </div>
       </li>
     </ul>
+    <!-- 平台标题 -->
+    <h1 class="platfrom-h1 pt-4 text-center">
+      <span class="platform-span px-1">p</span>
+      <span class="platform-span px-1">l</span>
+      <span class="platform-span px-1">a</span>
+      <span class="platform-span px-1">t</span>
+      <span class="platform-span px-1">f</span>
+      <span class="platform-span px-1">o</span>
+      <span class="platform-span px-1">r</span>
+      <span class="platform-span px-1">m</span>
+    </h1>
+    <!-- 平台展示 -->
+    <div class="cards w-full px-10 items-center justify-evenly mt-16">
+      <div class="card red flex-1">
+        <img class="h-24" src="https://www.svgrepo.com/show/303223/microsoft-windows-22-logo.svg" alt="Windows 22" />
+        <p class="tip text-base-content">Windows 22</p>
+      </div>
+      <div class="card blue flex-1">
+        <img class="h-24" src="https://www.svgrepo.com/show/303110/apple-black-logo.svg" alt="Apple" />
+        <p class="tip text-base-content">Mac</p>
+      </div>
+      <div class="card green flex-1">
+        <img class="h-24" src="https://www.svgrepo.com/show/354004/linux-tux.svg" alt="Linux" />
+        <p class="tip text-base-content">Linux</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 .read-the-docs {
   color: #888;
+}
+
+
+/* 卡片 */
+.card::before {
+  border-radius: 50%;
+  top: 20%;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  background-color: #7090fa4b;
+  position: absolute;
+  filter: blur(10px);
+}
+
+.cards {
+  display: flex;
+  gap: 40px;
+}
+
+.cards .red,
+.cards .blue,
+.cards .green {
+  width: 200px;
+  height: 180px;
+  font-family: "CustomFont", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  backdrop-filter: blur(30px);
+  background-color: rgba(65, 65, 65, 0.11);
+  border: 1px solid rgba(144, 161, 255, 0.171);
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards .card p.second-text {
+  font-size: 0.7em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(5px);
+  transform: scale(0.9, 0.9);
+}
+
+/* 仓鼠 */
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+		0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+		0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+/* 平台标题 */
+.platfrom-h1{
+  height: 100px;
+}
+
+.platform-span{
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce .3s ease infinite alternate;
+  font-family: 'Titan One', cursive;
+  font-size: 80px;
+  color: #FFF;
+  text-shadow: 0 1px 0 #CCC,
+               0 2px 0 #CCC,
+               0 3px 0 #CCC,
+               0 4px 0 #CCC,
+               0 5px 0 #CCC,
+               0 6px 0 transparent,
+               0 7px 0 transparent,
+               0 8px 0 transparent,
+               0 9px 0 transparent,
+               0 10px 10px rgba(0, 0, 0, .4);
+}
+
+.platform-span:nth-child(2) { animation-delay: .1s; }
+.platform-span:nth-child(3) { animation-delay: .2s; }
+.platform-span:nth-child(4) { animation-delay: .3s; }
+.platform-span:nth-child(5) { animation-delay: .4s; }
+.platform-span:nth-child(6) { animation-delay: .5s; }
+.platform-span:nth-child(7) { animation-delay: .6s; }
+.platform-span:nth-child(8) { animation-delay: .7s; }
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 #CCC,
+                 0 7px 0 #CCC,
+                 0 8px 0 #CCC,
+                 0 9px 0 #CCC,
+                 0 50px 25px rgba(0, 0, 0, .2);
+  }
 }
 </style>
