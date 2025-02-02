@@ -1,6 +1,21 @@
 <script setup lang="ts">
 import ParticlesBg from '../components/backgrounds/particlesBg/ParticlesBg.vue';
 import BoxReveal from '../components/textAnimations/boxReveal/BoxReveal.vue';
+import LD from "../utils/LD";
+import { ref, watch } from "vue";
+import { useThemeStore } from "../store/theme";
+
+const colorPrimary = ref(LD.processOklchToHex('--p'));
+const colorSecondary = ref(LD.processOklchToHex('--s'));
+const colorAccent = ref(LD.processOklchToHex('--a'));
+const themeStore = useThemeStore();
+watch(() => themeStore.theme, (newValue, oldValue) => {
+  if(newValue !== oldValue) {
+    colorPrimary.value = LD.processOklchToHex('--p');
+    colorSecondary.value = LD.processOklchToHex('--s');
+    colorAccent.value = LD.processOklchToHex('--a');
+  }
+}, { immediate: false });
 </script>
 
 <template>
@@ -23,31 +38,31 @@ import BoxReveal from '../components/textAnimations/boxReveal/BoxReveal.vue';
     </div>
     <!-- 使用说明标题 -->
     <div class="size-full max-w-lg items-center justify-center overflow-hidden p-8">
-      <BoxReveal color="#E1251B">
-        <p class="text-[3.5rem] font-semibold">Inspira UI<span class="text-[#E1251B]">.</span></p>
+      <BoxReveal :color="colorPrimary">
+        <p class="text-[3.5rem] font-semibold">Introduction<span class="text-accent">.</span></p>
       </BoxReveal>
 
       <BoxReveal
-        color="#E1251B"
+        :color="colorPrimary"
         :duration="0.8"
       >
         <h2 class="mt-[.5rem] text-[1rem]">
-          Beautiful components for
-          <span class="text-[#E1251B]">Vue &amp; Nuxt.</span>
+          Beautiful Physical Data Processing for
+          <span class="text-accent">Vue &amp; Nuxt.</span>
         </h2>
       </BoxReveal>
 
       <BoxReveal
-        color="#E1251B"
+        :color="colorPrimary"
         :duration="1"
       >
         <div class="mt-6">
           <p>
             -&gt; Free and open-source animated components built with
-            <span class="font-semibold text-[#E1251B]"> Vue/Nuxt</span>,
-            <span class="font-semibold text-[#E1251B]"> Typescript</span>,
-            <span class="font-semibold text-[#E1251B]"> Tailwind CSS</span>, and
-            <span class="font-semibold text-[#E1251B]"> motion-v</span>
+            <span class="font-semibold text-accent"> Vue/Nuxt</span>,
+            <span class="font-semibold text-accent"> Typescript</span>,
+            <span class="font-semibold text-accent"> Tailwind CSS</span>, and
+            <span class="font-semibold text-accent"> motion-v</span>
             . <br />
             -&gt; 100% open-source, and customizable. <br />
           </p>
