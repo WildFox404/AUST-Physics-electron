@@ -4,10 +4,10 @@ import { isDev } from './util.js';
 const createWindow = () => {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
-      width: 800,
+      width: 1000,
       height: 600,
-      minWidth: 400, // 设置最小宽度
-      minHeight: 300, // 设置最小高度
+      minWidth: 1000, // 设置最小宽度
+      minHeight: 600, // 设置最小高度
     //   webPreferences: {
     //     preload: path.join(__dirname, 'preload.js'),
     //   },

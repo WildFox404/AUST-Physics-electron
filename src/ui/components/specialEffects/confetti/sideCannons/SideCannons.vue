@@ -53,7 +53,6 @@ function handleClick() {
       origin: { x: 0, y: 0.5 },
       colors: colors.value,
     });
-    console.log(colors.value);
     // Right side confetti cannon
     confetti({
       particleCount: 2,

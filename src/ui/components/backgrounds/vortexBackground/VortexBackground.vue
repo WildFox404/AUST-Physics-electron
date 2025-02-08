@@ -20,7 +20,7 @@
 import { Motion } from "motion-v";
 import { cn } from "../../../lib/utils";
 import { createNoise3D } from "simplex-noise";
-import { onMounted, onUnmounted, withDefaults, useTemplateRef } from "vue";
+import { onMounted, onUnmounted, useTemplateRef } from "vue";
 // All constants
 const TAU = 2 * Math.PI;
 const baseTTL = 50;

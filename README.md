@@ -19,7 +19,10 @@
 ```
 git clone https://github.com/WildFox404/AUST-Physics-electron.git
 
-npm i
+官方镜像源好用,记得挂梯子
+npm config set registry https://registry.npmjs.org
+
+cnpm install
 
 npm run dev:vue 启动vue本地
 
@@ -35,12 +38,25 @@ npm run dist:win 打包win软件
 
 npm run dist:linux 打包linux软件
 ```
-ps:如果electron安装出现错误
+ps:
+1如果electron安装出现错误
+
+
 ```
 npm install -g cnpm --registry=https://registry.npmmirror.com
 
 cnpm install --save-dev electron
 ```
+2npm安装一直卡在转圈
+去除electron的packgae.json,安装完其他后再安装electron
+npm install electron@34.1.0 --save-dev
+
+3vatex katex安装一直卡在转圈
+cnpm install vatex katex
+
+4chart.js vue-chartjs也是cnpm安装的
+cnpm install vue-chartjs chart.js
+cnpm install --save-dev @types/chart.js
 
 - 项目使用
     - vite
